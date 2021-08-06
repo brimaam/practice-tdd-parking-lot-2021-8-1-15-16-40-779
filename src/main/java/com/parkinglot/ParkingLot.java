@@ -4,9 +4,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
-    private final Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
+    private static final int DEFAULT_CAPACITY = 10;
+    private Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
+    private int capacity;
+
+    public ParkingLot() {
+        this(DEFAULT_CAPACITY);
+    }
+
+    public ParkingLot(int capacity) {
+        parkedPosition = new HashMap<>();
+        this.capacity = capacity;
+    }
 
     public ParkingTicket parkCar(Car car) {
+        if(parkedPosition.size() >= capacity){
+            return null;
+        }
         ParkingTicket parkingTicket = new ParkingTicket();
         parkedPosition.put(parkingTicket,car);
 
@@ -20,3 +34,4 @@ public class ParkingLot {
         return car;
     }
 }
+
