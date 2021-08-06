@@ -52,7 +52,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_no_car_when_fetch_given_a_parking_lot_a_wrong_parking_ticket() {
+    void should_return_no_car_when_fetch_given_a_parking_lot_and_a_wrong_parking_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         ParkingTicket wrongParkingTicket = new ParkingTicket();
@@ -63,6 +63,8 @@ public class ParkingLotTest {
         //then
         assertNull(car);
     }
+
+
 
 
 }
