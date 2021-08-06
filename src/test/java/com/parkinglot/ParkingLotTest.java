@@ -92,9 +92,4 @@ public class ParkingLotTest {
         //then
         assertNull(parkingTicket);
     }
-
-
-
-
-
 }
