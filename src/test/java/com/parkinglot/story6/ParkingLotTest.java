@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ParkingLotTest {
     //Story
@@ -111,6 +112,21 @@ public class ParkingLotTest {
         //then
         assertEquals(firstCar, firstActualCar);
         assertEquals(secondCar, secondActualCar);
+    }
+
+    @Test
+    void should_return_exception_with_error_message_when_fetch_given_a_super_smart_parking_boy_with_two_parking_lots_both_and_an_unrecognized_ticket() {
+        //given
+        List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(), new ParkingLot());
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+        ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
+
+        //when
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class,
+                () -> superSmartParkingBoy.fetchCar(unrecognizedParkingTicket));
+
+        //then
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
 
 }
