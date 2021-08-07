@@ -123,10 +123,10 @@ Given a smart parking boy, who manage two parking lots, first parking lot has mo
 When park the car,   
 Then the car will be parked to the first parking lot
 
-[] Case3  
+[x] Case3  
 Given a smart parking boy, who manage two parking lots, second parking lot has more available position than the first parking lot, and a car,  
 When park the car,   
-Then the car will be parked to the first parking lot
+Then the car will be parked to the second parking lot
 
 [] Case4  
 Given a smart parking boy, who manage two parking lots, first is full and second with available position, and a car,  
