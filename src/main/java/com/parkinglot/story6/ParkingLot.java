@@ -38,7 +38,7 @@ public class ParkingLot {
         return car;
     }
 
-    public double getLargerAvailableRate(ParkingLot parkingLot){
+    public double getLargerAvailableRate(ParkingLot parkingLot) {
         return ((double) capacity - parkingLot.getParkedPosition().size()) / (double) capacity;
     }
 

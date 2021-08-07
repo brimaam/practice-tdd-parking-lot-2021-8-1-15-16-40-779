@@ -18,17 +18,17 @@ public class ParkingLot {
     }
 
     public ParkingTicket parkCar(Car car) {
-        if(parkedPosition.size() >= capacity){
+        if (parkedPosition.size() >= capacity) {
             throw new NoAvailablePositionException();
         }
         ParkingTicket parkingTicket = new ParkingTicket();
-        parkedPosition.put(parkingTicket,car);
+        parkedPosition.put(parkingTicket, car);
 
         return parkingTicket;
     }
 
     public Car fetchCar(ParkingTicket parkingTicket) {
-        if(!parkedPosition.containsKey(parkingTicket)){
+        if (!parkedPosition.containsKey(parkingTicket)) {
             throw new UnrecognizedParkingTicketException();
         }
 

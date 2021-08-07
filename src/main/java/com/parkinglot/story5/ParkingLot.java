@@ -38,6 +38,7 @@ public class ParkingLot {
 
         return car;
     }
+
     public static boolean isAvailable(ParkingLot parkingLot) {
         return parkingLot.parkedPosition.size() < parkingLot.capacity;
     }

@@ -11,7 +11,7 @@ public class ParkingLotTest {
     void should_return_parking_ticket_when_park_given_a_parking_lot_a_standard_parking_boy_and_a_car() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        StandardParkingBoy  standardParkingBoy = new StandardParkingBoy(parkingLot);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
         Car car = new Car();
 
         //when
@@ -25,7 +25,7 @@ public class ParkingLotTest {
     void should_return_parked_car_when_fetch_given_a_parking_lot_with_a_parked_car_a_standard_parking_boy_and_a_parking_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        StandardParkingBoy  standardParkingBoy = new StandardParkingBoy(parkingLot);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
 
         Car car = new Car();
         ParkingTicket parkingTicket = standardParkingBoy.parkCar(car);
@@ -41,7 +41,7 @@ public class ParkingLotTest {
     void should_return_the_right_car_when_fetch_twice_given_a_parking_lot_with_two_parked_cars_a_standard_parking_boy_and_two_parking_tickets() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        StandardParkingBoy  standardParkingBoy = new StandardParkingBoy(parkingLot);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
         Car firstCar = new Car();
         Car secondCar = new Car();
         ParkingTicket firstParkingTicket = standardParkingBoy.parkCar(firstCar);
@@ -60,7 +60,7 @@ public class ParkingLotTest {
     void should_return_exception_with_error_message_when_fetch_given_a_parking_lot_a_standard_parking_boy_and_a_wrong_parking_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        StandardParkingBoy  standardParkingBoy = new StandardParkingBoy(parkingLot);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
         ParkingTicket wrongParkingTicket = new ParkingTicket();
 
         //when
@@ -74,7 +74,7 @@ public class ParkingLotTest {
     void should_return_exception_with_error_message_when_fetch_given_a_parking_lot_a_standard_parking_boy_and_a_used_parking_ticket() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        StandardParkingBoy  standardParkingBoy = new StandardParkingBoy(parkingLot);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
 
         ParkingTicket parkingTicket = standardParkingBoy.parkCar(new Car());
         standardParkingBoy.fetchCar(parkingTicket);
@@ -90,7 +90,7 @@ public class ParkingLotTest {
     void should_return_exception_with_error_message_when_park_given_a_parking_lot_without_any_position_a_standard_parking_boy_and_a_car() {
         //given
         ParkingLot parkingLot = new ParkingLot(1);
-        StandardParkingBoy  standardParkingBoy = new StandardParkingBoy(parkingLot);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
         standardParkingBoy.parkCar(new Car());
         Car car = new Car();
 

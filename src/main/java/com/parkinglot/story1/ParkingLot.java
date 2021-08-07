@@ -18,11 +18,11 @@ public class ParkingLot {
     }
 
     public ParkingTicket parkCar(Car car) {
-        if(parkedPosition.size() >= capacity){
+        if (parkedPosition.size() >= capacity) {
             return null;
         }
         ParkingTicket parkingTicket = new ParkingTicket();
-        parkedPosition.put(parkingTicket,car);
+        parkedPosition.put(parkingTicket, car);
 
         return parkingTicket;
     }
