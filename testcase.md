@@ -63,7 +63,7 @@ tickets,
 When fetch the car twice,  
 Then return the right car with each ticket 
 
-[] Case4  
+[x] Case4  
 Given a parking lot, a standard parking boy, and a wrong parking ticket,  
 When fetch the car,  
 Then return nothing with error message "Unrecognized parking ticket.”
