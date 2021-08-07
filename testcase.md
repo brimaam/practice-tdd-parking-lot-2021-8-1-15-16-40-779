@@ -133,12 +133,12 @@ Given a smart parking boy, who manage two parking lots, first is full and second
 When park the car,  
 Then the car will be parked to the second parking lot
 
-[] Case5  
+[x] Case5  
 Given a smart parking boy, who manage two parking lots, both with a parked car, and two parking ticket,  
 When fetch the car twice,  
 Then return the right car with each ticket
 
-[] Case6    
+[x] Case6    
 Given a smart parking boy, who manage two parking lots, and an unrecognized ticket,  
 When fetch the car,  
 Then return nothing with error message "Unrecognized parking ticket.”
