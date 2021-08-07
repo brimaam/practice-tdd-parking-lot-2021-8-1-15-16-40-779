@@ -11,13 +11,13 @@ public class SuperSmartParkingBoy {
     }
 
     public ParkingTicket parkCar(Car car) {
-        return parkInMoreAvailableParkingLot().parkCar(car);
+        return parkInLargerAvailableParkingLotRate().parkCar(car);
     }
 
-    private ParkingLot parkInMoreAvailableParkingLot() {
+    private ParkingLot parkInLargerAvailableParkingLotRate() {
+
         return parkingLots.stream()
-                .max(Comparator.comparingDouble(parkingLot
-                        ->parkingLot.getParkedPosition().size()/parkingLot.getCapacity()))
+                .max(Comparator.comparingDouble(parkingLot -> parkingLot.getLargerAvailableRate(parkingLot)))
                 .orElseThrow(NoAvailablePositionException::new);
     }
 

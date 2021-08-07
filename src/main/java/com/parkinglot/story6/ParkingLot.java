@@ -27,10 +27,6 @@ public class ParkingLot {
         return parkingTicket;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
     public Map<ParkingTicket, Car> getParkedPosition() {
         return parkedPosition;
     }
@@ -39,11 +35,14 @@ public class ParkingLot {
         if (!parkedPosition.containsKey(parkingTicket)) {
             throw new UnrecognizedParkingTicketException();
         }
-
         Car car = parkedPosition.get(parkingTicket);
         parkedPosition.remove(parkingTicket);
 
         return car;
+    }
+
+    public double getLargerAvailableRate(ParkingLot parkingLot){
+        return ((double) capacity - parkingLot.getParkedPosition().size()) / (double) capacity;
     }
 
     public boolean isBasedOnTicket(ParkingTicket parkingTicket) {

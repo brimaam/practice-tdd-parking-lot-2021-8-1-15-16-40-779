@@ -158,7 +158,7 @@ Then return nothing with error message "No available position."
 #story 6
 
 [x] Case1  
-Given a super smart parking boy, who manage two parking lots, both with the same number of available position, and a car,  
+Given a super smart parking boy, who manage two parking lots, both with the same available position rate, and a car,  
 When park the car,   
 Then the car will be parked to the first parking lot
 
@@ -167,7 +167,7 @@ Given a super smart parking boy, who manage two parking lots, first parking lot 
 When park the car,   
 Then the car will be parked to the first parking lot
 
-[] Case3  
+[x] Case3  
 Given a super smart parking boy, who manage two parking lots, second parking lot has larger available position rate than the first parking lot, and a car,  
 When park the car,   
 Then the car will be parked to the second parking lot
