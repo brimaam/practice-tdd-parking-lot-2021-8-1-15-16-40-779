@@ -16,6 +16,7 @@ public class SmartParkingBoy {
 
     private ParkingLot parkInMoreAvailableParkingLot() {
         return parkingLots.stream()
+                .filter(ParkingLot::isAvailable)
                 .max(Comparator.comparingInt(ParkingLot::getCapacity))
                 .orElseThrow(NoAvailablePositionException::new);
     }

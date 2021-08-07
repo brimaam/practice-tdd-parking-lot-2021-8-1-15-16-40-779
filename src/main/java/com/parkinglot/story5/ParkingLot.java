@@ -18,9 +18,6 @@ public class ParkingLot {
     }
 
     public ParkingTicket parkCar(Car car) {
-        if(parkedPosition.size() >= capacity){
-            throw new NoAvailablePositionException();
-        }
         ParkingTicket parkingTicket = new ParkingTicket();
         parkedPosition.put(parkingTicket, car);
 
@@ -40,6 +37,9 @@ public class ParkingLot {
         parkedPosition.remove(parkingTicket);
 
         return car;
+    }
+    public static boolean isAvailable(ParkingLot parkingLot) {
+        return parkingLot.parkedPosition.size() < parkingLot.capacity;
     }
 
     public boolean isBasedOnTicket(ParkingTicket parkingTicket) {
