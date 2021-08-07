@@ -12,7 +12,8 @@ public class StandardParkingBoy {
     public ParkingTicket parkCar(Car car) {
         return parkInAvailableParkingSpace().parkCar(car);
     }
-    private ParkingLot parkInAvailableParkingSpace(){
+
+    private ParkingLot parkInAvailableParkingSpace() {
         return parkingLots.stream()
                 .filter(ParkingLot::isAvailable)
                 .findFirst()
@@ -22,7 +23,8 @@ public class StandardParkingBoy {
     public Car fetchCar(ParkingTicket parkingTicket) {
         return findParkingLotBasedOnTicket(parkingTicket).fetchCar(parkingTicket);
     }
-    private ParkingLot findParkingLotBasedOnTicket(ParkingTicket parkingTicket){
+
+    private ParkingLot findParkingLotBasedOnTicket(ParkingTicket parkingTicket) {
         return parkingLots.stream()
                 .filter(parkingLot -> parkingLot.isBasedOnTicket(parkingTicket))
                 .findFirst()

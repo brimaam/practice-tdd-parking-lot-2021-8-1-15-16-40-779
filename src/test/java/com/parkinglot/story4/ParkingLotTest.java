@@ -1,8 +1,10 @@
 package com.parkinglot.story4;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
@@ -80,7 +82,7 @@ public class ParkingLotTest {
     void should_return_exception_with_error_message_when_fetch_given_a_standard_parking_boy_with_two_parking_lots_both_and_a_used_ticket() {
         //given
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(), new ParkingLot());
-        StandardParkingBoy  standardParkingBoy = new StandardParkingBoy(parkingLots);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
 
         ParkingTicket usedParkingTicket = standardParkingBoy.parkCar(new Car());
         standardParkingBoy.fetchCar(usedParkingTicket);
@@ -98,7 +100,7 @@ public class ParkingLotTest {
         //given
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(0), new ParkingLot(1));
 
-        StandardParkingBoy  standardParkingBoy = new StandardParkingBoy(parkingLots);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
         standardParkingBoy.parkCar(new Car());
         Car car = new Car();
 
@@ -108,6 +110,4 @@ public class ParkingLotTest {
         //then
         assertEquals("No available position.", exception.getMessage());
     }
-
-
 }
