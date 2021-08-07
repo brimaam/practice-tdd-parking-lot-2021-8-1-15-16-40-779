@@ -79,7 +79,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_car_parked_in_the_second_parking_lot_when_park_given_a_super_smart_parking_boy_with_two_parking_lots_second_is_full_and_first_with_available_position_and_a_car() {
+    void should_return_car_parked_in_the_first_parking_lot_when_park_given_a_super_smart_parking_boy_with_two_parking_lots_second_is_full_and_first_with_available_position_and_a_car() {
         //given
         ParkingLot firstParkingLot = new ParkingLot(10);
         ParkingLot secondParkingLot = new ParkingLot(0);
@@ -92,7 +92,7 @@ public class ParkingLotTest {
         ParkingTicket parkingTicket = superSmartParkingBoy.parkCar(car);
 
         //then
-        assertEquals(car, parkingLots.get(1).fetchCar(parkingTicket));
+        assertEquals(car, parkingLots.get(0).fetchCar(parkingTicket));
     }
 
     @Test
@@ -144,5 +144,23 @@ public class ParkingLotTest {
 
         //then
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
+    }
+
+    @Test
+    void should_return_exception_with_error_message_when_park_given_a_super_smart_parking_boy_with_two_parking_lots_both_without_any_position_and_a_car() {
+        //given
+        List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(1), new ParkingLot(1));
+
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+        superSmartParkingBoy.parkCar(new Car());
+        superSmartParkingBoy.parkCar(new Car());
+
+        Car car = new Car();
+
+        //when
+        Exception exception = assertThrows(NoAvailablePositionException.class, () -> superSmartParkingBoy.parkCar(car));
+
+        //then
+        assertEquals("No available position.", exception.getMessage());
     }
 }

@@ -17,6 +17,7 @@ public class SuperSmartParkingBoy {
     private ParkingLot parkInLargerAvailableParkingLotRate() {
 
         return parkingLots.stream()
+                .filter(ParkingLot::isAvailable)
                 .max(Comparator.comparingDouble(parkingLot -> parkingLot.getLargerAvailableRate(parkingLot)))
                 .orElseThrow(NoAvailablePositionException::new);
     }

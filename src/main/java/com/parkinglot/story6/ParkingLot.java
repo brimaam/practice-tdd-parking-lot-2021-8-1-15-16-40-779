@@ -42,6 +42,10 @@ public class ParkingLot {
         return ((double) capacity - parkingLot.getParkedPosition().size()) / (double) capacity;
     }
 
+    public static boolean isAvailable(ParkingLot parkingLot) {
+        return parkingLot.parkedPosition.size() < parkingLot.capacity;
+    }
+
     public boolean isBasedOnTicket(ParkingTicket parkingTicket) {
         return parkedPosition.containsKey(parkingTicket);
     }
