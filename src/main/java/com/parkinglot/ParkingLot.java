@@ -39,7 +39,7 @@ public class ParkingLot {
     }
 
     public static boolean isAvailable(ParkingLot parkingLot) {
-        return  parkingLot.parkedPosition.size() <= parkingLot.capacity;
+        return parkingLot.parkedPosition.size() <= parkingLot.capacity;
     }
 }
 
