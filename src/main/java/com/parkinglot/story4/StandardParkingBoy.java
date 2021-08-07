@@ -3,14 +3,10 @@ package com.parkinglot.story4;
 import java.util.List;
 
 public class StandardParkingBoy {
-    private ParkingLot parkingLot;
     private List<ParkingLot> parkingLots;
 
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
-    }
-    public StandardParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
     }
 
     public ParkingTicket parkCar(Car car) {
@@ -24,6 +20,12 @@ public class StandardParkingBoy {
     }
 
     public Car fetchCar(ParkingTicket parkingTicket) {
-        return parkingLot.fetchCar(parkingTicket);
+        return findParkingLotBasedOnTicket(parkingTicket).fetchCar(parkingTicket);
+    }
+    private ParkingLot findParkingLotBasedOnTicket(ParkingTicket parkingTicket){
+        return parkingLots.stream()
+                .filter(parkingLot -> parkingLot.isBasedOnTicket(parkingTicket))
+                .findFirst()
+                .orElseThrow(UnrecognizedParkingTicketException::new);
     }
 }

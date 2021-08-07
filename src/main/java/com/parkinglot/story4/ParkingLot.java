@@ -4,9 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
+    private static final int DEFAULT_CAPACITY = 10;
     private final Map<ParkingTicket, Car> parkedPosition;
     private final int capacity;
 
+    public ParkingLot() {
+        this(DEFAULT_CAPACITY);
+    }
     public ParkingLot(int capacity) {
         parkedPosition = new HashMap<>();
         this.capacity = capacity;
@@ -32,6 +36,10 @@ public class ParkingLot {
 
     public static boolean isAvailable(ParkingLot parkingLot) {
         return parkingLot.parkedPosition.size() < parkingLot.capacity;
+    }
+
+    public boolean isBasedOnTicket(ParkingTicket parkingTicket) {
+        return parkedPosition.containsKey(parkingTicket);
     }
 }
 
