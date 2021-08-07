@@ -19,7 +19,7 @@ public class ParkingLot {
 
     public ParkingTicket parkCar(Car car) {
         if(parkedPosition.size() >= capacity){
-            return null;
+            throw new NoAvailablePositionException();
         }
         ParkingTicket parkingTicket = new ParkingTicket();
         parkedPosition.put(parkingTicket,car);
