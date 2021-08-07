@@ -177,7 +177,7 @@ Given a super smart parking boy, who manage two parking lots, second is full and
 When park the car,  
 Then the car will be parked to the second parking lot
 
-[] Case5  
+[x] Case5  
 Given a super smart parking boy, who manage two parking lots, both with a parked car, and two parking ticket,  
 When fetch the car twice,  
 Then return the right car with each ticket
