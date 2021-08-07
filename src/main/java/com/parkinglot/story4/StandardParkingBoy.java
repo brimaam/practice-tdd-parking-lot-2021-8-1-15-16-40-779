@@ -1,4 +1,4 @@
-package com.parkinglot;
+package com.parkinglot.story4;
 
 import java.util.List;
 

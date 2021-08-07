@@ -1,4 +1,4 @@
-package com.parkinglot;
+package com.parkinglot.story2;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,10 +36,6 @@ public class ParkingLot {
         parkedPosition.remove(parkingTicket);
 
         return car;
-    }
-
-    public static boolean isAvailable(ParkingLot parkingLot) {
-        return parkingLot.parkedPosition.size() <= parkingLot.capacity;
     }
 }
 
