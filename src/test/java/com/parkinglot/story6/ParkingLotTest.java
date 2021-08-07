@@ -77,4 +77,21 @@ public class ParkingLotTest {
         assertEquals(car, parkingLots.get(1).fetchCar(parkingTicket));
     }
 
+    @Test
+    void should_return_car_parked_in_the_second_parking_lot_when_park_given_a_super_smart_parking_boy_with_two_parking_lots_second_is_full_and_first_with_available_position_and_a_car() {
+        //given
+        ParkingLot firstParkingLot = new ParkingLot(10);
+        ParkingLot secondParkingLot = new ParkingLot(0);
+
+        List<ParkingLot> parkingLots = Arrays.asList(firstParkingLot, secondParkingLot);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+        Car car = new Car();
+
+        //when
+        ParkingTicket parkingTicket = superSmartParkingBoy.parkCar(car);
+
+        //then
+        assertEquals(car, parkingLots.get(1).fetchCar(parkingTicket));
+    }
+
 }
