@@ -237,9 +237,12 @@ public class ParkingLotTest {
 
     //Story 4
     @Test
-    void should_return_parking_ticket_of_car_parked_in_the_first_parking_lot_when_park_given_a_standard_parking_boy_with_two_parking_lots_both_with_available_position_and_a_car() {
+    void should_return_car_parked_in_the_first_parking_lot_when_park_given_a_standard_parking_boy_with_two_parking_lots_both_with_available_position_and_a_car() {
         //given
-        List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(10), new ParkingLot(10));
+        ParkingLot firstParkingLot = new ParkingLot(10);
+        ParkingLot secondParkingLot = new ParkingLot(10);
+
+        List<ParkingLot> parkingLots = Arrays.asList(firstParkingLot, secondParkingLot);
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
         Car car = new Car();
 
@@ -247,7 +250,7 @@ public class ParkingLotTest {
         ParkingTicket parkingTicket = standardParkingBoy.parkCar(car);
 
         //then
-        assertNotNull(parkingTicket);
+        assertEquals(car, parkingLots.stream().findFirst().get().fetchCar(parkingTicket));
     }
 
 }
