@@ -128,7 +128,7 @@ Given a smart parking boy, who manage two parking lots, second parking lot has m
 When park the car,   
 Then the car will be parked to the second parking lot
 
-[] Case4  
+[x] Case4  
 Given a smart parking boy, who manage two parking lots, first is full and second with available position, and a car,  
 When park the car,  
 Then the car will be parked to the second parking lot
