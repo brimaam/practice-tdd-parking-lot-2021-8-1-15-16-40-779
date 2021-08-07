@@ -1,4 +1,4 @@
-package com.parkinglot.story5;
+package com.parkinglot.story6;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +29,10 @@ public class ParkingLot {
 
     public int getCapacity() {
         return capacity;
+    }
+
+    public Map<ParkingTicket, Car> getParkedPosition() {
+        return parkedPosition;
     }
 
     public Car fetchCar(ParkingTicket parkingTicket) {

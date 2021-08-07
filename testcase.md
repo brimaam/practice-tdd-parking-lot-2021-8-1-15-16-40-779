@@ -111,6 +111,7 @@ Given a standard parking boy, who manage two parking lots, both without any posi
 When park the car,  
 Then return nothing with error message "No available position."
 
+
 #story 5
 
 [x] Case1  
@@ -143,12 +144,55 @@ Given a smart parking boy, who manage two parking lots, and an unrecognized tick
 When fetch the car,  
 Then return nothing with error message "Unrecognized parking ticket.”
 
-[] Case7  
+[x] Case7  
 Given a smart parking boy, who manage two parking lots, and a used ticket,  
 When fetch the car,  
 Then return nothing with error message "Unrecognized parking ticket."
 
-[] Case8  
+[x] Case8  
 Given a smart parking boy, who manage two parking lots, both without any position, and a car,  
+When park the car,  
+Then return nothing with error message "No available position."
+
+
+#story 6
+
+[x] Case1  
+Given a super smart parking boy, who manage two parking lots, both with the same number of available position, and a car,  
+When park the car,   
+Then the car will be parked to the first parking lot
+
+[] Case2  
+Given a super smart parking boy, who manage two parking lots, first parking lot has larger available position rate than the second parking lot, and a car,  
+When park the car,   
+Then the car will be parked to the first parking lot
+
+[] Case3  
+Given a super smart parking boy, who manage two parking lots, second parking lot has larger available position rate than the first parking lot, and a car,  
+When park the car,   
+Then the car will be parked to the second parking lot
+
+[] Case4  
+Given a super smart parking boy, who manage two parking lots, second is full and first with available position, and a car,  
+When park the car,  
+Then the car will be parked to the second parking lot
+
+[] Case5  
+Given a super smart parking boy, who manage two parking lots, both with a parked car, and two parking ticket,  
+When fetch the car twice,  
+Then return the right car with each ticket
+
+[] Case6    
+Given a super smart parking boy, who manage two parking lots, and an unrecognized ticket,  
+When fetch the car,  
+Then return nothing with error message "Unrecognized parking ticket.”
+
+[] Case7  
+Given a super smart parking boy, who manage two parking lots, and a used ticket,  
+When fetch the car,  
+Then return nothing with error message "Unrecognized parking ticket."
+
+[] Case8  
+Given a super smart parking boy, who manage two parking lots, both without any position, and a car,  
 When park the car,  
 Then return nothing with error message "No available position."
