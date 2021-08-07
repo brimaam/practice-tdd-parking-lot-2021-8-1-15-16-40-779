@@ -1,5 +1,6 @@
 package com.parkinglot.story5;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class SmartParkingBoy {
@@ -10,13 +11,12 @@ public class SmartParkingBoy {
     }
 
     public ParkingTicket parkCar(Car car) {
-        return parkInAvailableParkingSpace().parkCar(car);
+        return parkInMoreAvailableParkingLot().parkCar(car);
     }
 
-    private ParkingLot parkInAvailableParkingSpace() {
+    private ParkingLot parkInMoreAvailableParkingLot() {
         return parkingLots.stream()
-                .filter(ParkingLot::isAvailable)
-                .findFirst()
+                .max(Comparator.comparingInt(ParkingLot::getCapacity))
                 .orElseThrow(NoAvailablePositionException::new);
     }
 

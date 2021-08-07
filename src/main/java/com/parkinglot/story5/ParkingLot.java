@@ -24,6 +24,10 @@ public class ParkingLot {
         return parkingTicket;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
     public Car fetchCar(ParkingTicket parkingTicket) {
         if (!parkedPosition.containsKey(parkingTicket)) {
             throw new UnrecognizedParkingTicketException();
@@ -33,10 +37,6 @@ public class ParkingLot {
         parkedPosition.remove(parkingTicket);
 
         return car;
-    }
-
-    public static boolean isAvailable(ParkingLot parkingLot) {
-        return parkingLot.parkedPosition.size() < parkingLot.capacity;
     }
 
     public boolean isBasedOnTicket(ParkingTicket parkingTicket) {

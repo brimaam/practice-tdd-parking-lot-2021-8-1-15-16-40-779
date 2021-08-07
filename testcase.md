@@ -113,12 +113,12 @@ Then return nothing with error message "No available position."
 
 #story 5
 
-[] Case1  
+[x] Case1  
 Given a smart parking boy, who manage two parking lots, both with the same number of available position, and a car,  
 When park the car,   
 Then the car will be parked to the first parking lot
 
-[] Case2  
+[x] Case2  
 Given a smart parking boy, who manage two parking lots, first parking lot has more available position than the second parking lot, and a car,  
 When park the car,   
 Then the car will be parked to the first parking lot
