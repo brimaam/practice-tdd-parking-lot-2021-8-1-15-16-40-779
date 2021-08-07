@@ -24,7 +24,7 @@ public class ParkingLotTest {
         ParkingTicket parkingTicket = standardParkingBoy.parkCar(car);
 
         //then
-        assertEquals(car, parkingLots.stream().findFirst().get().fetchCar(parkingTicket));
+        assertEquals(car, parkingLots.get(0).fetchCar(parkingTicket));
     }
 
     @Test
@@ -41,7 +41,10 @@ public class ParkingLotTest {
         ParkingTicket parkingTicket = standardParkingBoy.parkCar(car);
 
         //then
-        assertNotNull(parkingTicket);
+        assertEquals(car, parkingLots.get(1).fetchCar(parkingTicket));
     }
+
+
+
 
 }
