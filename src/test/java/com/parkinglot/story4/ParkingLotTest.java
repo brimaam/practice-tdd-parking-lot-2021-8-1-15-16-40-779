@@ -65,7 +65,6 @@ public class ParkingLotTest {
     void should_return_exception_with_error_message_when_fetch_given_a_standard_parking_boy_with_two_parking_lots_both_and_an_unrecognized_ticket() {
         //given
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(), new ParkingLot());
-
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
         ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
 
@@ -81,7 +80,6 @@ public class ParkingLotTest {
     void should_return_exception_with_error_message_when_fetch_given_a_standard_parking_boy_with_two_parking_lots_both_and_a_used_ticket() {
         //given
         List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(), new ParkingLot());
-
         StandardParkingBoy  standardParkingBoy = new StandardParkingBoy(parkingLots);
 
         ParkingTicket usedParkingTicket = standardParkingBoy.parkCar(new Car());
@@ -94,4 +92,22 @@ public class ParkingLotTest {
         //then
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
+
+    @Test
+    void should_return_exception_with_error_message_when_park_given_a_standard_parking_boy_with_two_parking_lots_both_without_any_position_and_a_car() {
+        //given
+        List<ParkingLot> parkingLots = Arrays.asList(new ParkingLot(0), new ParkingLot(1));
+
+        StandardParkingBoy  standardParkingBoy = new StandardParkingBoy(parkingLots);
+        standardParkingBoy.parkCar(new Car());
+        Car car = new Car();
+
+        //when
+        Exception exception = assertThrows(NoAvailablePositionException.class, () -> standardParkingBoy.parkCar(car));
+
+        //then
+        assertEquals("No available position.", exception.getMessage());
+    }
+
+
 }
