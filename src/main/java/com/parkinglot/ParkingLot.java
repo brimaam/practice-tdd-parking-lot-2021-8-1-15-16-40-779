@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class ParkingLot {
     private static final int DEFAULT_CAPACITY = 10;
-    private Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
+    private final Map<ParkingTicket, Car> parkedPosition;
     private final int capacity;
 
     public ParkingLot() {
@@ -28,6 +28,10 @@ public class ParkingLot {
     }
 
     public Car fetchCar(ParkingTicket parkingTicket) {
+        if(!parkedPosition.containsKey(parkingTicket)){
+            throw new UnrecognizedParkingTicketException();
+        }
+
         Car car = parkedPosition.get(parkingTicket);
         parkedPosition.remove(parkingTicket);
 
