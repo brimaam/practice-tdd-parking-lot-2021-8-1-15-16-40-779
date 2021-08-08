@@ -1,4 +1,4 @@
-package com.parkinglot.story4;
+package com.parkinglot;
 
 public class NoAvailablePositionException extends RuntimeException {
     @Override

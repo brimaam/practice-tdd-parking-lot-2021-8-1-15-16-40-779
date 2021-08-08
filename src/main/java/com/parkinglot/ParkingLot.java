@@ -1,4 +1,4 @@
-package com.parkinglot.story6;
+package com.parkinglot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +18,9 @@ public class ParkingLot {
     }
 
     public ParkingTicket parkCar(Car car) {
+        if (parkedPosition.size() >= capacity) {
+            throw new NoAvailablePositionException();
+        }
         ParkingTicket parkingTicket = new ParkingTicket();
         parkedPosition.put(parkingTicket, car);
 
@@ -48,6 +51,10 @@ public class ParkingLot {
 
     public boolean isBasedOnTicket(ParkingTicket parkingTicket) {
         return parkedPosition.containsKey(parkingTicket);
+    }
+
+    public int getCapacity() {
+        return capacity;
     }
 }
 

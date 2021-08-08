@@ -1,4 +1,4 @@
-package com.parkinglot.story3;
+package com.parkinglot;
 
 public class UnrecognizedParkingTicketException extends RuntimeException {
     @Override
