@@ -2,27 +2,19 @@ package com.parkinglot;
 
 import java.util.List;
 
-public class StandardParkingBoy {
-    private List<ParkingLot> parkingLots;
-    private ParkingLot parkingLot;
+public class StandardParkingBoy extends ParkingBoy {
 
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
-        this.parkingLots = parkingLots;
+        super(parkingLots);
     }
 
     public StandardParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+        super(parkingLot);
     }
 
-    public ParkingTicket parkCar(Car car) {
-        return parkInAvailableParkingSpace().parkCar(car);
-    }
 
-    public List<ParkingLot> getParkingLots() {
-        return parkingLots;
-    }
-
-    private ParkingLot parkInAvailableParkingSpace() {
+    @Override
+    protected ParkingLot parkInAvailableParkingSpace() {
         if (parkingLot == null) {
             return parkingLots.stream()
                     .filter(ParkingLot::isAvailable)
@@ -31,23 +23,6 @@ public class StandardParkingBoy {
         }
         if (!ParkingLot.isAvailable(parkingLot)) {
             throw new NoAvailablePositionException();
-        }
-        return parkingLot;
-    }
-
-    public Car fetchCar(ParkingTicket parkingTicket) {
-        return findParkingLotBasedOnTicket(parkingTicket).fetchCar(parkingTicket);
-    }
-
-    private ParkingLot findParkingLotBasedOnTicket(ParkingTicket parkingTicket) {
-        if (parkingLot == null) {
-            return parkingLots.stream()
-                    .filter(parkingLot -> parkingLot.isBasedOnTicket(parkingTicket))
-                    .findFirst()
-                    .orElseThrow(UnrecognizedParkingTicketException::new);
-        }
-        if (!parkingLot.isBasedOnTicket(parkingTicket)) {
-            throw new UnrecognizedParkingTicketException();
         }
         return parkingLot;
     }
