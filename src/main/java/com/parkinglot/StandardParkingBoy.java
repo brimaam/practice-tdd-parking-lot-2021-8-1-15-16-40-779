@@ -9,6 +9,7 @@ public class StandardParkingBoy {
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
     }
+
     public StandardParkingBoy(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
     }
@@ -22,13 +23,13 @@ public class StandardParkingBoy {
     }
 
     private ParkingLot parkInAvailableParkingSpace() {
-        if(parkingLot == null) {
+        if (parkingLot == null) {
             return parkingLots.stream()
                     .filter(ParkingLot::isAvailable)
                     .findFirst()
                     .orElseThrow(NoAvailablePositionException::new);
         }
-        if(!ParkingLot.isAvailable(parkingLot)){
+        if (!ParkingLot.isAvailable(parkingLot)) {
             throw new NoAvailablePositionException();
         }
         return parkingLot;
@@ -39,13 +40,13 @@ public class StandardParkingBoy {
     }
 
     private ParkingLot findParkingLotBasedOnTicket(ParkingTicket parkingTicket) {
-        if(parkingLot == null) {
+        if (parkingLot == null) {
             return parkingLots.stream()
                     .filter(parkingLot -> parkingLot.isBasedOnTicket(parkingTicket))
                     .findFirst()
                     .orElseThrow(UnrecognizedParkingTicketException::new);
         }
-        if(!parkingLot.isBasedOnTicket(parkingTicket)){
+        if (!parkingLot.isBasedOnTicket(parkingTicket)) {
             throw new UnrecognizedParkingTicketException();
         }
         return parkingLot;
